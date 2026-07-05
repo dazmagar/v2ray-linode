@@ -1,0 +1,46 @@
+# Required: Linode API token (https://cloud.linode.com/profile/tokens)
+# Alternative: omit here and export LINODE_TOKEN in the shell before terraform apply
+linode_token = "YOUR_LINODE_PERSONAL_ACCESS_TOKEN"
+
+# Required: Linode region — see https://www.linode.com/docs/products/compute/compute-instances/availability/
+region = "us-east"
+
+# Required: SSH keys
+user           = "tfadmin"
+publickeypath  = "c:/Users/demo/.ssh/id_rsa.pub"
+privatekeypath = "c:/Users/demo/.ssh/id_rsa"
+
+# Required: V2Ray panel (used in client links; point DNS A-record to instance_ip after apply)
+v2ray_host = "v2ray.demo-example.com"
+
+# Required: 3x-ui panel
+panel_port      = 27419
+panel_base_path = "xui-a8f3b2c4/" # or "" for default /panel/
+panel_host      = ""              # Caddy: empty => panel.<v2ray_host>
+
+# Required: Caddy + proxy
+enable_caddy_tls = true
+proxy_port       = 8443
+
+# Required: Linode Cloud Firewall (proxy_port always merged; panel_port merged only if enable_caddy_tls = false)
+firewall_tcp_ports = [
+  22,
+  80,
+  443,
+  37883,
+]
+firewall_udp_ports = [
+  443,
+  31863,
+]
+
+# Required: Linode instance
+instance_label = "v2ray-server-us-east-demo"
+boot_image     = "linode/ubuntu24.04"
+instance_type  = "g6-nanode-1" # 1 GB RAM, ~$5/mo
+
+cron_restart_schedule = "15 4 * * *"
+backup_path           = "./modules/backup/xui_backup"
+
+# Required: pinned 3x-ui image (bump tag deliberately; do not use :latest)
+xui_image = "ghcr.io/mhsanaei/3x-ui:v3.4.2"

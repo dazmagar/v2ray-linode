@@ -1,0 +1,26 @@
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Terraform lock files
+.terraform.lock.hcl
+
+# Crash log files
+crash.log
+
+*.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+*id_rsa
+*id_rsa.pub
+
+clients/android/*
+clients/windows/*
+keys/*
+modules/backup/xui_backup/*
