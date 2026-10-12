@@ -26,7 +26,11 @@ sudo tee "${CADDYFILE}" >/dev/null <<EOF
 ${SITE_HOST} {
 	reverse_proxy 127.0.0.1:${PANEL_PORT}
 }
+
+# Other sites on this host (e.g. p2w) drop their own files here.
+import /etc/caddy/sites/*.caddy
 EOF
+sudo mkdir -p /etc/caddy/sites
 
 echo "Caddyfile written. Restarting Caddy..." | tee -a "${LOG_FILE}"
 sudo systemctl enable caddy

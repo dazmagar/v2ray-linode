@@ -51,13 +51,13 @@ variable "proxy_port" {
 }
 
 variable "firewall_tcp_ports" {
-  type        = list(number)
-  description = "Linode Cloud Firewall: allowed TCP ports (proxy_port always added; panel_port added when enable_caddy_tls is false)"
+  type        = list(string)
+  description = "Linode Cloud Firewall: allowed TCP ports or ranges like \"50000-50060\" (proxy_port always added; panel_port added when enable_caddy_tls is false)"
 }
 
 variable "firewall_udp_ports" {
-  type        = list(number)
-  description = "Linode Cloud Firewall: allowed UDP ports"
+  type        = list(string)
+  description = "Linode Cloud Firewall: allowed UDP ports or ranges like \"50000-50060\""
 }
 
 variable "panel_host" {
