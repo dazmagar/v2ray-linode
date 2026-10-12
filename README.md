@@ -142,7 +142,7 @@ Never commit tokens to git. If a token is leaked, revoke it in Cloud Manager and
 
 - **v2ray_host** - Server IP or FQDN (used in client connection links). With Caddy TLS, Caddy serves this hostname only - access via IP in the browser will not work.
 - **panel_base_path** - Custom URL prefix for the 3x-ui panel (e.g. `xyz-a1b2c3d4/`). When set, use `terraform output panel_url` as-is; do **not** append `/panel` (that suffix replaces the default `/panel/` path).
-- **xui_image** - Pinned 3x-ui Docker image tag. Example: `ghcr.io/mhsanaei/3x-ui:v3.4.2`. Do not use `:latest`.
+- **xui_image** - Pinned 3x-ui Docker image tag. Example: `ghcr.io/mhsanaei/3x-ui:v3.10.0`. Do not use `:latest`.
 - **Firewall:** `firewall_tcp_ports` / `firewall_udp_ports` in tfvars; **`proxy_port` is always merged into TCP**, **`panel_port` is merged only when `enable_caddy_tls = false`**.
 
 ### US East regions (North America)

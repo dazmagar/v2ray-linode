@@ -43,4 +43,4 @@ cron_restart_schedule = "15 4 * * *"
 backup_path           = "./modules/backup/xui_backup"
 
 # Required: pinned 3x-ui image (bump tag deliberately; do not use :latest)
-xui_image = "ghcr.io/mhsanaei/3x-ui:v3.4.2"
+xui_image = "ghcr.io/mhsanaei/3x-ui:v3.10.0"
